@@ -1,0 +1,33 @@
+<dataConfig>
+    <dataSource driver="com.mysql.jdbc.Driver" url="jdbc:mysql://221.174.120.161:3306/nmsdb" user="mirui" password="mirui123465" />
+    <document>
+        <entity name="mediaInfo" query="select * from T_MEDIAINFO "
+                deltaQuery="select * from T_MEDIAINFO where INPUTTIME > '${dataimporter.last_index_time}'">
+			<!-- <pk column="MEDIAINFOID" name="mediaInfoId" /> -->
+            <field column="MEDIAINFONAME" name="mediaInfoName" />
+            <field column="MEDIAINFONAME" name="mediaInfoName" />
+
+			<!--
+            <entity name="feature"  
+                    query="select DESCRIPTION from FEATURE where ITEM_ID='${item.ID}'"
+                    deltaQuery="select ITEM_ID from FEATURE where last_modified > '${dataimporter.last_index_time}'"
+                    parentDeltaQuery="select ID from item where ID=${feature.ITEM_ID}">
+                <field name="features" column="DESCRIPTION" />
+            </entity>
+            
+            <entity name="item_category"
+                    query="select CATEGORY_ID from item_category where ITEM_ID='${item.ID}'"
+                    deltaQuery="select ITEM_ID, CATEGORY_ID from item_category where last_modified > '${dataimporter.last_index_time}'"
+                    parentDeltaQuery="select ID from item where ID=${item_category.ITEM_ID}">
+                <entity name="category"
+                        query="select DESCRIPTION from category where ID = '${item_category.CATEGORY_ID}'"
+                        deltaQuery="select ID from category where last_modified > '${dataimporter.last_index_time}'"
+                        parentDeltaQuery="select ITEM_ID, CATEGORY_ID from item_category where CATEGORY_ID=${category.ID}">
+                    <field column="DESCRIPTION" name="cat" />
+                </entity>
+            </entity>
+			-->
+        </entity>
+    </document>
+</dataConfig>
+
